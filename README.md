@@ -1,4 +1,4 @@
-# Visualización de categorías de acurdos de paz, una visión mundial
+# Visualización de categorías de acuerdos de paz, una visión mundial.
 
 * Máster en Ciencia de Datos.
 * Universitat Oberta de Catalunya.
