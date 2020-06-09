@@ -59,8 +59,9 @@ El set de datos ha sido generado a través del procesado que se realizó con ayu
  
 * fmeza_M2.859_20192_PEC4.pdf : Archivo que consolida toda la práctica.
 * FMeza_pax_all_agreements_data.Rmd: Archivo con código R Markdown.  
+* pax_data_1823_agreements_Jan2020release.csv : Archivo descargado del repositorio de la Universidad de Edinburgh.
 * paz_all_agreements_data.xlsx : Archivo inicial convertido a excel (también sirve como entrada de dattos a Tableau).
-* paz.csv: Dataset en formato CSV.
+* paz.csv: Dataset después del pre-procesado, en formato CSV.
 * Tableau-Paz.twb : Archivo generado por Tableau sobre la visualización.
 
 
