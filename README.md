@@ -1,13 +1,12 @@
 # Visualización de categorías de acurdos de paz, una visión mundial
 
-* Master en Ciencia de Datos.
-* Universitat Oberta of Catalunya.
+* Máster en Ciencia de Datos.
+* Universitat Oberta de Catalunya.
 * Consultor: Ignacio Javier Alcalde Perea.
 * Fecha: Junio 9 de 2020
 
 # Autor:
-* Fernando Meza Ibarra
-* fer_meza@hotmail.com
+* Fernando Meza Ibarra (fer_meza@hotmail.com)
 
 # Resumen:
 
