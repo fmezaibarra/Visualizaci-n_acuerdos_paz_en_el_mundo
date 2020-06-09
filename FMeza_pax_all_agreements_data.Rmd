@@ -1,0 +1,133 @@
+---
+title: "Explorando Dataset  - Acuerdo de Paz en el mundo"
+author: "Fernando Meza Ibarra  - Programa del Master de Ciencia de Datos - UOC"
+date: "Abril-2020"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+# Análisis de los datos #
+
+Ejercicio que realiza un pequeño análisis estadístico descriptivo e inferencial de  datos procesados.
+La data contiene una recopilación de toda la información de acuerdos de paz entre países en todo el mundo.
+
+
+**1. Lectura del Fichero **
+
+**Carga del Archivo de trabajo: pax_all_agreements_data.csv **   
+**La data mas de 1832 registros y 265 variables**
+
+```{r}
+Archivodatos <-"pax_all_agreements_data.csv"
+paz<-read.csv(Archivodatos, sep=",",na.strings = "NA")
+
+```
+
+**2. Análisis descriptivo visual **  
+**Realizamos uan breve descripción de los datos**   
+```{r}
+sapply(paz,class)
+
+```
+
+```{r}
+str(paz)        # Muestra los tipos y algunos valores
+
+head(paz)  # Muestra las 6 primeras instancias
+```
+
+```{r}
+# Muestra NA
+summary(paz)
+```
+**3. Algunas Transformaciones - Se acondiciona valores NA a 0** 
+
+```{r}
+# Transformo variables tipo Factor/Numericas en Numericas, eliminando valores NA
+
+# Uppsala Conflict Data Program Conflict ID.
+paz$UcdpCon <- as.character(paz$UcdpCon)
+paz$UcdpCon <- ifelse(paz$UcdpCon == "NA", "0", paz$UcdpCon)
+paz$UcdpCon <- as.numeric(paz$UcdpCon)
+class(paz$UcdpCon)
+
+# Uppsala Conflict Data Program peace agreement ID
+paz$UcdpAgr <- as.character(paz$UcdpAgr)
+paz$UcdpAgr <- ifelse(paz$UcdpAgr == "NA", "0", paz$UcdpAgr)
+paz$UcdpAgr <- as.numeric(paz$UcdpAgr)
+class(paz$UcdpAgr)
+
+# Kroc Institute’s Peace Accords Matrix agreement ID
+paz$PamAgr <- as.character(paz$PamAgr)
+paz$PamAgr <- ifelse(paz$PamAgr == "NA", "0", paz$PamAgr)
+paz$PamAgr <- as.numeric(paz$PamAgr)
+class(paz$PamAgr)
+
+# Correlates of War
+paz$CowWar <- as.character(paz$CowWar)
+paz$CowWar <- ifelse(paz$CowWar == "NA", "0", paz$CowWar)
+paz$CowWar <- as.numeric(paz$CowWar)
+class(paz$CowWar)
+
+# Indicates primary location of intrastate conflict and returns the Gleditsch-Ward country code.
+paz$Loc1GWNO <- as.character(paz$Loc1GWNO)
+paz$Loc1GWNO <- ifelse(paz$Loc1GWNO == "NA", "0", paz$Loc1GWNO)
+paz$Loc1GWNO <- as.numeric(paz$Loc1GWNO)
+class(paz$Loc1GWNO)
+
+# Only used in cases of interstate conflict, indicating one of the primary locations of intrastate
+# conflict, and returning the Gleditsch-Ward country code
+paz$Loc2GWNO <- as.character(paz$Loc2GWNO)
+paz$Loc2GWNO <- ifelse(paz$Loc2GWNO == "NA", "0", paz$Loc2GWNO)
+paz$Loc2GWNO <- as.numeric(paz$Loc2GWNO)
+class(paz$Loc2GWNO)
+
+
+```
+ **Genera nueva columna para el año**
+```{r}
+# Crea una nueva columna para registrar el año cuando se firmó el acuerdo
+paz$Dat <- as.character(paz$Dat)
+paz$Year <- substr(paz$Dat, start = 1, stop = 4)
+paz$Year <- as.numeric(paz$Year)
+class(paz$Year)
+```
+**Diagramas de bigotes para algunas variables cuantitativas - Puedo ver datos extremos** 
+```{r}
+par(mfrow=c(1,3))
+boxplot(paz$UcdpAgr,xlab = "UcdpAgr", ylab = "Valores",col = "cyan")
+boxplot(paz$PamAgr,xlab = "PamAgr", ylab = "Valores",col = "cyan")
+boxplot(paz$Loc1GWNO,xlab = "Loc1GWNO", ylab = "Valores",col = "cyan")
+```
+
+```{r}
+par(mfrow=c(1,3))
+boxplot(paz$Loc2GWNO,xlab = "Loc2GWNO", ylab = "Valores",col = "cyan")
+boxplot(paz$AgtId,xlab = "AgtId", ylab = "Valores",col = "cyan")
+```
+**Verifica si aun existen valores NA"**
+```{r}
+# Contabiliza si aun hay NA.
+# Con esto veo en otras variables también
+table(paz$Loc1ISO)
+
+```
+
+  
+**Se genera nuevo archivo depurado en "paz.csv"**
+
+```{r}
+write.csv(paz , "paz.csv", row.names = FALSE)
+```
+
+**---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------**
+  
+Fin de análisis.  
+Visualización y Transformaciones de Dataset de acuerdos de paz en el mundo.  
+Fernando Meza Ibarra.  
+UOC - 2020  
+
+
+
+
