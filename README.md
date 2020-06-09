@@ -9,7 +9,11 @@
 * Fernando Meza Ibarra
 * fer_meza@hotmail.com
 
-# Dataset
+# Resumen:
+
+A través de la visualización de datos podemos representar de forma gráfica la información y los datos de los acuerdos de paz y acuerdos de entendimiento firmados por diferentes países a nivel mundial. Mediante el uso de elementos visuales, como gráficos y mapas, la visualización de datos ofrece una manera accesible para detectar y comprender las tendencias, los valores atípicos y los patrones en los datos.
+
+# Dataset:
 
 Nombre del dataset:	pax_data_1823_agreements_Jan2020release.csv
 Formato:	Archivo texto con valores separados por “comas” (csv)
@@ -64,4 +68,4 @@ El set de datos ha sido generado a través del procesado que se realizó con ayu
 * paz.csv: Dataset después del pre-procesado, en formato CSV.
 * Tableau-Paz.twb : Archivo generado por Tableau sobre la visualización.
 
-
+Fin de Reademe.
